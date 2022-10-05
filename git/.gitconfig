@@ -1,0 +1,8 @@
+[user]
+	name = BvngeeCord
+	email = nystromjp@gmail.com
+[credential]
+	helper = /usr/local/share/gcm-core/git-credential-manager-core
+	credentialStore = gpg
+[credential "https://dev.azure.com"]
+	useHttpPath = true
