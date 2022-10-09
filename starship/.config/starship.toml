@@ -26,11 +26,11 @@ truncation_symbol = "…/"
 [git_branch]
 symbol = ""
 style = "bg:#b27d29"
-format = '[[ $symbol $branch ](bg:#b27d29)]($style)'
+format = '[ $symbol $branch ]($style)'
 
 [git_status]
 style = "bg:#b27d29"
-format = '[[($all_status$d)](bg:#b27d9)]($style)'
+format = '[$all_status$ahead_behind]($style)'
 
-
+# (bg:#b27d29)
 #Next color if needed: #c1537
