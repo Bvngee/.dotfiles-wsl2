@@ -8,9 +8,9 @@ curl -sS https://starship.rs/install.sh | sh
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
 nvm install --lts && nvm use --lts
 
-curl -LO https://aka.ms/gcm/linux-install-source.sh
-./linux-install-source.sh
-git-credential-manager-core configure
+# curl -LO https://aka.ms/gcm/linux-install-source.sh
+# ./linux-install-source.sh
+# git-credential-manager-core configure
 
-#git submodule initialization
+# Git Submodule Initialization
 git submodule update --init
