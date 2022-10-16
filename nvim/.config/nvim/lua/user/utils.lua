@@ -1,7 +1,7 @@
 local M = {}
 
 -- quickly spit out the values of a table
-M.dump = function(o)
+M.dump = function(o)        -- vim.pretty_print()
    if type(o) == 'table' then
       local s = '{ '
       for k,v in pairs(o) do

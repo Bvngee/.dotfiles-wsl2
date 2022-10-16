@@ -38,3 +38,4 @@ export NVM_DIR="$HOME/.nvm"
 
 
 export GPG_TTY=$(tty)
+export EDITOR="/bin/nvim"

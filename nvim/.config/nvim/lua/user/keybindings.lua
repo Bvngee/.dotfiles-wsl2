@@ -113,11 +113,12 @@ function M.set_lsp_keymaps(bufnr)
   bufmap(bufnr, 'n', 'gd', ':Telescope lsp_definitions<CR>', opts)
   bufmap(bufnr, 'n', 'gD', ':Telescope lsp_declarations<CR>', opts)
   bufmap(bufnr, 'n', 'K', ':lua vim.lsp.buf.hover()<CR>', opts)
-  bufmap(bufnr, 'n', 'gI', ':Telescope lsp_implementations<CR>', opts)   
+  bufmap(bufnr, 'n', 'gi', ':Telescope lsp_implementations<CR>', opts)   
   bufmap(bufnr, 'n', 'gr', ':Telescope lsp_references<CR>', opts)
   bufmap(bufnr, 'n', 'gl', ':lua vim.diagnostic.open_float()<CR>', opts)
   bufmap(bufnr, 'n', 'gs', ':lua vim.lsp.buf.signature_help()<CR>', opts)
   bufmap(bufnr, 'n', 'gA', ':lua vim.lsp.buf.code_action()<cr>', opts)
+  bufmap(bufnr, 'n', 'gR', ':lua vim.lsp.buf.rename()<cr>', opts)
 end
 
 --- CMP Mappings ---

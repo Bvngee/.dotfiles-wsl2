@@ -39,7 +39,7 @@ nvim_tree.setup {
         preserve_window_proportions = false,
         number = false,
         relativenumber = false,
-        signcolumn = "auto",
+        signcolumn = "yes",
         -- @deprecated
         mappings = {
           custom_only = false,
@@ -61,11 +61,11 @@ nvim_tree.setup {
         },
       },
       renderer = {
-        add_trailing = false,
+        add_trailing = true,
         group_empty = false,
         highlight_git = false,
         full_name = false,
-        highlight_opened_files = "none",
+        highlight_opened_files = "name",
         root_folder_modifier = ":~",
         indent_width = 2,
         indent_markers = {
@@ -81,7 +81,7 @@ nvim_tree.setup {
         },
         icons = {
           webdev_colors = true,
-          git_placement = "before",
+          git_placement = "after",
           padding = " ",
           symlink_arrow = " ➛ ",
           show = {
@@ -105,7 +105,7 @@ nvim_tree.setup {
               symlink_open = "",
             },
             git = {
-              unstaged = "✗",
+              unstaged = "",
               staged = "✓",
               unmerged = "",
               renamed = "➜",

@@ -30,6 +30,7 @@ return require('packer').startup(function(use)
     use 'j-hui/fidget.nvim'
     use { 'SmiteshP/nvim-navic', requires = 'neovim/nvim-lspconfig' }
     use 'karb94/neoscroll.nvim'
+    use 'rcarriga/nvim-notify'
 
     use {'L3MON4D3/LuaSnip', tag = "v1.*"}
     use 'rafamadriz/friendly-snippets'

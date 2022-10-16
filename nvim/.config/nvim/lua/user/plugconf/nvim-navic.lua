@@ -1,5 +1,5 @@
 require('nvim-navic').setup {
-    highlight = false,
+    highlight = true,
     separator = " > ",
     depth_limit = 0,
     depth_limit_indicator = "..", 
@@ -8,8 +8,9 @@ require('nvim-navic').setup {
 
 local get_filename = function()
   local filename = vim.fn.expand "%:t"
-  local extension = vim.fn.expand "%:e"
+  local extension = vim.fn.expand "%:e" 
 
+  -- print(filename .. " " .. extension .. " :)")
   if not (filename == "" or filename == nil) then
     local file_icon, file_icon_color =
       require("nvim-web-devicons").get_icon_color(filename, extension, { default = true })
@@ -24,21 +25,56 @@ local get_filename = function()
     local navic_text = vim.api.nvim_get_hl_by_name("Normal", true)
     vim.api.nvim_set_hl(0, "Winbar", { fg = navic_text.foreground })
 
-    return " " .. "%#" .. hl_group .. "#" .. file_icon .. "%*" .. " " .. "%#Winbar#" .. filename .. "%*" .. ">" .. " "
+    return " " .. "%#" .. hl_group .. "#" .. file_icon .. "%*" .. " " .. "%#Winbar#" .. filename .. "%*"
   end
+  return ""
 end
+
+
+local winbar_filetype_exclude = {
+  "help",
+  "startify",
+  "dashboard",
+  "packer",
+  "neo-tree",
+  "neogitstatus",
+  "NvimTree",
+  "Trouble",
+  "alpha",
+  "lir",
+  "Outline",
+  "spectre_panel",
+  "toggleterm",
+  "DressingSelect",
+  "Jaq",
+  "harpoon",
+  "dap-repl",
+  "dap-terminal",
+  "dapui_console",
+  "lab",
+  "Markdown",
+  "",
+}
 
 local get_winbar = function()
+    if vim.tbl_contains(winbar_filetype_exclude, vim.bo.filetype) then
+       return
+    end
     local navic = require('nvim-navic')
     local get_gps = function()
-        if not navic.is_available() then
+        if not navic.is_available() or navic.get_location() == "" then
             return ""
         end
-        return navic.get_location()
+        return ">" .. " " .. navic.get_location()
     end
-
-    return get_filename() .. " " .. get_gps()
+    
+    local value = get_filename() .. " " .. get_gps()
+    local status_ok, _ = pcall(vim.api.nvim_set_option_value, "winbar", value, { scope = "local" })
+    if not status_ok then
+        return
+    end
 end
+
 
 local create_winbar = function()
   vim.api.nvim_create_augroup("_winbar", {})
@@ -57,5 +93,6 @@ local create_winbar = function()
     )
   end
 end
+
 
 create_winbar()
