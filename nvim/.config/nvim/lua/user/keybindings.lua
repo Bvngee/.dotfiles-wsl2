@@ -23,10 +23,6 @@ local function vmap(shortcut, command)
   map('v', shortcut, command, opts)
 end
 
-local function xmap(shortcut, command)
-  map('x', shortcut, command, opts)
-end
-
 local function cmap(shortcut, command)
   map('c', shortcut, command, opts)
 end
@@ -48,8 +44,8 @@ vmap('>', '>gv')
 -- moving text up and down
 vmap('<A-j>', ':m .+1<CR>==')
 vmap('<A-k>', ':m .-2<CR>==')
-xmap('<A-j>', ":move '>+1<CR>gv-gv")
-xmap('<A-k>', ":move '<-2<CR>gv-gv")
+-- xmap('<A-j>', ":move '>+1<CR>gv-gv")
+-- xmap('<A-k>', ":move '<-2<CR>gv-gv")
 
 -- maintain register contents after paste
 vmap('p', '"_dP')
@@ -86,6 +82,10 @@ nmap(']b', ':BufferLineCycleNext<CR>')
 nmap('[mb', ':BufferLineMovePrev<CR>')
 nmap(']mb', ':BufferLineMoveNext<CR>')
 nmap('<leader>db', ':Bdelete<CR>')
+
+-- null-ls
+nmap('<leader>f', ':lua vim.lsp.buf.format()<CR>')
+vmap('<leader>f', ':lua vim.lsp.buf.format()<CR>')
 
 -- ranger (rnvimr)
 nmap('<leader>r', ':RnvimrToggle<CR>')

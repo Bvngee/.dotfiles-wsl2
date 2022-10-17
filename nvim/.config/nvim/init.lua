@@ -1,25 +1,27 @@
 local g = vim.g
 local o = vim.o
+local opt = vim.opt
 
 -- Vim Options --
 g.mapleader = ','
 o.mouse = 'a'
 o.wrap = false
 o.number = true
+o.relativenumber = true
 o.signcolumn = 'yes'
 o.smarttab = true
 o.autoindent = true
 o.smartindent = true
 o.tabstop = 4
 o.shiftwidth = 4
-o.expandtab = true
+o.expandtab = false
 o.mousemoveevent = true
 o.splitbelow = true
 o.splitright = true
-o.laststatus=3
-o.cmdheight=0
-o.updatetime=100
-o.hidden=true
+o.cmdheight = 0
+o.laststatus = 3
+o.updatetime = 100
+o.hidden = true
 
 
 require('user.plugins')

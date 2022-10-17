@@ -27,6 +27,8 @@ return require('packer').startup(function(use)
     use {'akinsho/toggleterm.nvim', tag = '*'}
     use {'lewis6991/gitsigns.nvim', tag = 'release'}
     use 'numToStr/Comment.nvim'
+    use 'RRethy/vim-illuminate'
+    use 'lukas-reineke/indent-blankline.nvim'
     use 'j-hui/fidget.nvim'
     use { 'SmiteshP/nvim-navic', requires = 'neovim/nvim-lspconfig' }
     use 'karb94/neoscroll.nvim'
@@ -46,7 +48,7 @@ return require('packer').startup(function(use)
     use 'hrsh7th/cmp-buffer'
     use 'hrsh7th/cmp-path'
     use 'saadparwaiz1/cmp_luasnip'
-    use 'folke/lua-dev.nvim'
+    use 'folke/neodev.nvim'
 
     use 'hrsh7th/nvim-cmp'
 
