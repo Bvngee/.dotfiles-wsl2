@@ -29,6 +29,7 @@ return require('packer').startup(function(use)
     use 'numToStr/Comment.nvim'
     use 'RRethy/vim-illuminate'
     use 'lukas-reineke/indent-blankline.nvim'
+	use 'windwp/nvim-autopairs'
     use 'j-hui/fidget.nvim'
     use { 'SmiteshP/nvim-navic', requires = 'neovim/nvim-lspconfig' }
     use 'karb94/neoscroll.nvim'
@@ -39,6 +40,7 @@ return require('packer').startup(function(use)
 
     use 'onsails/lspkind.nvim'
     use 'folke/lsp-colors.nvim'
+    use 'lvimuser/lsp-inlayhints.nvim'
     use {'jose-elias-alvarez/null-ls.nvim', requires = 'nvim-lua/plenary.nvim' }
     use 'williamboman/mason.nvim'
     use 'williamboman/mason-lspconfig.nvim'

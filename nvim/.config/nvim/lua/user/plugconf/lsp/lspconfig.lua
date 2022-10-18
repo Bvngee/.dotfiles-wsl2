@@ -23,10 +23,10 @@ for _, lsp in ipairs(servers) do
 end
 
 local signs = {
-  Error = ' ',
-  Warn = ' ', --
-  Info = ' ', --כֿ
-  Hint = ' ', --
+  Error = ' ',
+  Warn = ' ', --
+  Info = ' ', --כֿ
+  Hint = ' ', --
 }
 for type, icon in pairs(signs) do
   local hl = 'DiagnosticSign' .. type

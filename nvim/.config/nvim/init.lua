@@ -5,16 +5,18 @@ local opt = vim.opt
 -- Vim Options --
 g.mapleader = ','
 o.mouse = 'a'
-o.wrap = false
+o.wrap = true
 o.number = true
 o.relativenumber = true
 o.signcolumn = 'yes'
-o.smarttab = true
+
 o.autoindent = true
 o.smartindent = true
+o.smarttab = true
 o.tabstop = 4
 o.shiftwidth = 4
-o.expandtab = false
+o.expandtab = true
+
 o.mousemoveevent = true
 o.splitbelow = true
 o.splitright = true

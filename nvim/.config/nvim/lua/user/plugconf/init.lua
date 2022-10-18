@@ -8,9 +8,9 @@ require('user.plugconf.gitsigns')
 require('user.plugconf.Comment')
 require('user.plugconf.vim-illuminate')
 require('user.plugconf.indent-blankline')
+require('user.plugconf.nvim-autopairs')
 require('user.plugconf.nvim-navic')
 require('user.plugconf.cmp')
-require('user.plugconf.null-ls')
 require('user.plugconf.mason')
 require('user.plugconf.neoscroll')
 
@@ -21,3 +21,5 @@ require('luasnip.loaders.from_vscode').lazy_load()
 require('fidget').setup{}
 
 require('user.plugconf.lsp.lspconfig')
+require('user.plugconf.lsp.null-ls')
+require('user.plugconf.lsp.lsp-inlayhints')
