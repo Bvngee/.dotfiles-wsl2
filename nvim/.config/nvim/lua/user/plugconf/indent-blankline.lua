@@ -1,5 +1,5 @@
 require('indent_blankline').setup {
-	char = '▏',
+	char = require('user.icons').RightVerticalLine,
 	-- space_char_blankline = ' ',	--not needed
 	use_treesitter = true,
 	show_first_indent_level = false,

@@ -1,7 +1,3 @@
-local utils = require('user.utils')
-utils.dump { 1, 2, 3 }
-utils.dump(require('user.keybindings').telescope_mappings)
-
 require('telescope').setup {
     defaults = {
         path_display = { 'smart' },

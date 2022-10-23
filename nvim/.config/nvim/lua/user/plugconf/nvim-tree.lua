@@ -9,6 +9,7 @@ if not config_status_ok then
 end
 
 local tree_cb = nvim_tree_config.nvim_tree_callback
+local icons = require('user.icons')
 
 nvim_tree.setup {
     auto_reload_on_write = true,
@@ -33,10 +34,10 @@ nvim_tree.setup {
     view = {
         adaptive_size = false,
         centralize_selection = false,
-        width = 30,
+        width = 35,
         hide_root_folder = false,
         side = 'left',
-        preserve_window_proportions = false,
+        preserve_window_proportions = true,
         number = false,
         relativenumber = false,
         signcolumn = 'yes',
@@ -133,14 +134,14 @@ nvim_tree.setup {
         args = {},
     },
     diagnostics = {
-        enable = false,
-        show_on_dirs = false,
+        enable = true,
+        show_on_dirs = true,
         debounce_delay = 50,
         icons = {
-            hint = '',
-            info = '',
-            warning = '',
-            error = '',
+            hint = icons.Hint,
+            info = icons.Info,
+            warning = icons.Warn,
+            error = icons.Error,
         },
     },
     filters = {

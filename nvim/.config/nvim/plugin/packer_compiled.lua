@@ -149,6 +149,11 @@ _G.packer_plugins = {
     path = "/home/jack/.local/share/nvim/site/pack/packer/start/lsp-inlayhints.nvim",
     url = "https://github.com/lvimuser/lsp-inlayhints.nvim"
   },
+  ["lsp_signature.nvim"] = {
+    loaded = true,
+    path = "/home/jack/.local/share/nvim/site/pack/packer/start/lsp_signature.nvim",
+    url = "https://github.com/ray-x/lsp_signature.nvim"
+  },
   ["lspkind.nvim"] = {
     loaded = true,
     path = "/home/jack/.local/share/nvim/site/pack/packer/start/lspkind.nvim",
@@ -194,6 +199,11 @@ _G.packer_plugins = {
     path = "/home/jack/.local/share/nvim/site/pack/packer/start/nvim-cmp",
     url = "https://github.com/hrsh7th/nvim-cmp"
   },
+  ["nvim-colorizer.lua"] = {
+    loaded = true,
+    path = "/home/jack/.local/share/nvim/site/pack/packer/start/nvim-colorizer.lua",
+    url = "https://github.com/NvChad/nvim-colorizer.lua"
+  },
   ["nvim-lspconfig"] = {
     loaded = true,
     path = "/home/jack/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
@@ -209,6 +219,11 @@ _G.packer_plugins = {
     path = "/home/jack/.local/share/nvim/site/pack/packer/start/nvim-notify",
     url = "https://github.com/rcarriga/nvim-notify"
   },
+  ["nvim-surround"] = {
+    loaded = true,
+    path = "/home/jack/.local/share/nvim/site/pack/packer/start/nvim-surround",
+    url = "https://github.com/kylechui/nvim-surround"
+  },
   ["nvim-tree.lua"] = {
     loaded = true,
     path = "/home/jack/.local/share/nvim/site/pack/packer/start/nvim-tree.lua",
@@ -218,6 +233,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/jack/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
+  },
+  ["nvim-treesitter-textobjects"] = {
+    loaded = true,
+    path = "/home/jack/.local/share/nvim/site/pack/packer/start/nvim-treesitter-textobjects",
+    url = "https://github.com/nvim-treesitter/nvim-treesitter-textobjects"
   },
   ["nvim-web-devicons"] = {
     loaded = true,
@@ -243,6 +263,16 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/jack/.local/share/nvim/site/pack/packer/start/rnvimr",
     url = "https://github.com/kevinhwang91/rnvimr"
+  },
+  ["rust-tools.nvim"] = {
+    loaded = true,
+    path = "/home/jack/.local/share/nvim/site/pack/packer/start/rust-tools.nvim",
+    url = "https://github.com/simrat39/rust-tools.nvim"
+  },
+  ["tabout.nvim"] = {
+    loaded = true,
+    path = "/home/jack/.local/share/nvim/site/pack/packer/start/tabout.nvim",
+    url = "https://github.com/abecodes/tabout.nvim"
   },
   ["telescope.nvim"] = {
     loaded = true,

@@ -5,6 +5,7 @@ local opt = vim.opt
 -- Vim Options --
 g.mapleader = ','
 o.mouse = 'a'
+o.termguicolors = true
 o.wrap = true
 o.number = true
 o.relativenumber = true

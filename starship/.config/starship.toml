@@ -33,4 +33,4 @@ style = "bg:#b27d29"
 format = '[$all_status$ahead_behind]($style)'
 
 # (bg:#b27d29)
-#Next color if needed: #c1537
+#Next color if needed: #c1537?
