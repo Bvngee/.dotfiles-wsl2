@@ -1,6 +1,6 @@
 sudo apt update && apt upgrade -y
 
-sudo apt install -y zsh ranger curl stow neofetch zip unzip gh
+sudo apt install -y zsh ranger curl stow neofetch zip unzip gh build-essentials
 
 sudo chsh -s $(which zsh) $(whoami)
 
