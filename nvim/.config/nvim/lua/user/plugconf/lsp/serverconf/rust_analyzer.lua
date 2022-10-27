@@ -1,14 +1,14 @@
 -- rust has a special setup with both the rust_analyzer lsp, and rust-tools.nvim
 return {
     tools = {
-        on_initialized = function()
+        --[[ on_initialized = function()
             vim.api.nvim_create_autocmd({ 'BufWritePost', 'BufEnter', 'CursorHold', 'InsertLeave' }, {
                 pattern = { '*.rs' },
                 callback = function()
                     vim.lsp.codelens.refresh()
                 end,
             })
-        end,
+        end, ]]
 
         inlay_hints = { -- all of this is irrelevant, as lsp-inlayhints is used instead
             auto = false,
@@ -65,12 +65,16 @@ return {
     },
     server = {
         -- cmd = { 'rustup', 'run', 'nightly', os.getenv('HOME') .. '/.local/bin/rust-analyzer' },
-        -- on_attach = require('user.lsp.handlers').on_attach,
-        -- capabilities = require('user.lsp.handlers').capabilities,
+        on_attach = require('user.plugconf.lsp.utils').common_on_attach,
+        capabilities = require('user.plugconf.lsp.utils').capabilities,
 
         settings = {
             ['rust-analyzer'] = {
                 --rust-analyzer settings, in addition to the default added rust-tools
+                
+                lens = {
+                    enable = true,
+                }
             },
         },
     },
