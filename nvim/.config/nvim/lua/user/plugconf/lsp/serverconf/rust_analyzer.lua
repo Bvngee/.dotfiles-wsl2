@@ -74,7 +74,10 @@ return {
                 
                 lens = {
                     enable = true,
-                }
+                },
+                checkOnSave = {
+                    command = "clippy",
+                },
             },
         },
     },

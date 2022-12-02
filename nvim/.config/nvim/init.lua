@@ -6,10 +6,14 @@ local opt = vim.opt
 g.mapleader = ','
 o.mouse = 'a'
 o.termguicolors = true
+o.fileencoding = 'utf-8'
 o.wrap = true
 o.number = true
 o.relativenumber = true
+o.cursorline = true
+o.cursorlineopt = "number"
 o.signcolumn = 'yes'
+o.undofile = true
 
 o.autoindent = true
 o.smartindent = true
@@ -25,6 +29,8 @@ o.cmdheight = 0
 o.laststatus = 3
 o.updatetime = 100
 o.hidden = true
+o.scrolloff = 8
+o.sidescrolloff = 8
 
 
 require('user.plugins')

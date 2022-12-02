@@ -39,3 +39,21 @@ for type, icon in pairs(signs) do
     local hl = 'DiagnosticSign' .. type
     vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = '' })
 end
+
+vim.diagnostic.config {
+    virtual_text = true, -- disable virtual text
+    signs = {
+        active = signs, -- show signs
+    },
+    update_in_insert = true,
+    underline = true,
+    severity_sort = true,
+    float = {
+        focusable = true,
+        style = 'minimal',
+        border = 'none',
+        source = 'always',
+        header = '',
+        prefix = '',
+    },
+}

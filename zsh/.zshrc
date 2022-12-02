@@ -25,8 +25,8 @@ bindkey "$terminfo[kcuu1]" history-substring-search-up
 bindkey "$terminfo[kcud1]" history-substring-search-down
 
 # User defined aliases
-alias ls="lsd"
-alias ranger=". ranger"
+alias ls="exa --icons --group-directories-first"
+alias tree="exa --icons --group-directories-first --tree --level=2"
 alias ra="ranger"
 
 # Init Starship Prompt
@@ -39,3 +39,5 @@ export NVM_DIR="$HOME/.nvm"
 
 export GPG_TTY=$(tty)
 export EDITOR="/bin/nvim"
+export PATH="/opt/osxcross/target/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"

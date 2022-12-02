@@ -2,7 +2,7 @@ return {
     Error = '', --
     Warn = '', --
     Info = 'כֿ', --
-    Hint = '', --
+    Hint = '', --
     RightVerticalLine = '▏',
     MiddleVerticalLine = '│'
 }

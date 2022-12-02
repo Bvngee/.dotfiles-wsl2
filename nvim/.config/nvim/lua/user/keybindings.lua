@@ -49,14 +49,21 @@ vmap('<A-k>', ':m .-2<CR>==')
 -- maintain register contents after paste
 vmap('p', '"_dP')
 
+-- easier delete-without-yank keybind
+nmap('_d', '"_d')
+
+-- x key doesn't yank
+nmap('x', '"_x')
+vmap('x', '"_x')
+
 -- yank to system clipboard
 vmap('<leader>y', '"*y')
 
 -- buffer navigation
-nmap('<C-h>', '<C-w>h')
-nmap('<C-j>', '<C-w>j')
-nmap('<C-k>', '<C-w>k')
-nmap('<C-l>', '<C-w>l')
+nmap('<C-H>', '<C-w>h')
+nmap('<C-J>', '<C-w>j')
+nmap('<C-K>', '<C-w>k')
+nmap('<C-L>', '<C-w>l')
 
 --- Plugin Mappings ---
 
@@ -197,5 +204,27 @@ M.telescope_mappings = {
         ['q'] = actions.close,
     },
 }
+
+--- Neoscroll mappings
+local neoscroll_mappings = {}
+-- Syntax: t[keys] = {function, {function arguments}}
+neoscroll_mappings['<C-d>'] = {'scroll', {'-8', 'true', '100'}}
+neoscroll_mappings['<C-f>'] = {'scroll', {'8', 'true', '100'}}
+neoscroll_mappings['<C-k>'] = {'scroll', {'-4', 'false', '100'}}
+neoscroll_mappings['<C-j>'] = {'scroll', {'4', 'false', '100'}}
+-- t['<C-d>'] = {'scroll', {'-vim.wo.scroll', 'false', '50'}}
+-- t['<C-f>'] = {'scroll', {'vim.wo.scroll', 'false', '50'}}
+
+-- t['<C-b>'] = {'scroll', {'-vim.api.nvim_win_get_height(0)', 'true', '450'}}
+-- t['<C-f>'] = {'scroll', { 'vim.api.nvim_win_get_height(0)', 'true', '450'}}
+
+-- t['<>'] = {'scroll', {'-0.10', 'true', '1'}}
+-- t['<>'] = {'scroll', { '0.10', 'true', '1'}}
+
+neoscroll_mappings['zt'] = {'zt', {'100'}}
+neoscroll_mappings['zz'] = {'zz', {'100'}}
+neoscroll_mappings['zb'] = {'zb', {'100'}}
+
+M.neoscroll_mappings = neoscroll_mappings
 
 return M

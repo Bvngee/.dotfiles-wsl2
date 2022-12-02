@@ -1,6 +1,6 @@
 sudo apt update && apt upgrade -y
 
-sudo apt install -y zsh ranger curl stow neofetch zip unzip gh build-essentials ripgrep python3-pip
+sudo apt install -y zsh ranger exa curl stow neofetch zip unzip gh build-essentials ripgrep python3-pip
 
 sudo chsh -s $(which zsh) $(whoami)
 

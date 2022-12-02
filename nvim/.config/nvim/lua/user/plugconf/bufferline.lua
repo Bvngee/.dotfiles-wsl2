@@ -1,7 +1,7 @@
 require('bufferline').setup {
     options = {
         mode = "buffers", -- set to "tabs" to only show tabpages instead
-        numbers = "",
+        numbers = "none",
         close_command = "Bdelete! %d",       -- can be a string | function, see "Mouse actions"
         right_mouse_command = "Bdelete! %d", -- can be a string | function, see "Mouse actions"
         left_mouse_command = "buffer %d",    -- can be a string | function, see "Mouse actions"
@@ -74,7 +74,7 @@ require('bufferline').setup {
         always_show_bufferline = true,
         hover = {
                 enabled = true,
-                delay = 200,
+                delay = 0,
                 reveal = {'close'}
             },
         sort_by = 'insert_after_current'
