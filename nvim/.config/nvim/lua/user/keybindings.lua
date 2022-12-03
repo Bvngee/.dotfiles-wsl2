@@ -60,10 +60,10 @@ vmap('x', '"_x')
 vmap('<leader>y', '"*y')
 
 -- buffer navigation
-nmap('<C-H>', '<C-w>h')
-nmap('<C-J>', '<C-w>j')
-nmap('<C-K>', '<C-w>k')
-nmap('<C-L>', '<C-w>l')
+nmap('<C-A-h>', '<C-w>h')
+nmap('<C-A-j>', '<C-w>j')
+nmap('<C-A-k>', '<C-w>k')
+nmap('<C-A-l>', '<C-w>l')
 
 --- Plugin Mappings ---
 
@@ -100,14 +100,18 @@ nmap('<leader>lg', ':Telescope live_grep<CR>')
 nmap('<leader>rs', ':Telescope resume<CR>')
 nmap('<leader>ff', ':Telescope find_files<CR>')
 
+-- neoscroll
+nmap('<C-y>', '<C-y>zz')
+nmap('<C-e>', '<C-e>zz')
+
 -- ToggleTerm
 function M.set_terminal_keymaps()
     local term_opts = { buffer = 0 }
     map('t', '<S-ESC>', [[<C-\><C-n>]], term_opts)
-    map('t', '<C-h>', [[<CMD>wincmd h<CR>]], term_opts)
-    map('t', '<C-j>', [[<CMD>wincmd j<CR>]], term_opts)
-    map('t', '<C-k>', [[<CMD>wincmd k<CR>]], term_opts)
-    map('t', '<C-l>', [[<CMD>wincmd l<CR>]], term_opts)
+    map('t', '<C-A-h>', [[<CMD>wincmd h<CR>]], term_opts)
+    map('t', '<C-A-j>', [[<CMD>wincmd j<CR>]], term_opts)
+    map('t', '<C-A-k>', [[<CMD>wincmd k<CR>]], term_opts)
+    map('t', '<C-A-l>', [[<CMD>wincmd l<CR>]], term_opts)
 end
 vim.cmd('autocmd! TermOpen term://* lua require("user.keybindings").set_terminal_keymaps()')
 
@@ -146,12 +150,12 @@ M.cmp_mappings = {
     ['<Tab>'] = cmp.mapping(function(fallback)
         if cmp.visible() then
             cmp.select_next_item()
+        elseif luasnip.expand_or_locally_jumpable() then
+            luasnip.expand_or_jump()
         elseif luasnip.jumpable(1) then
             luasnip.jump(1)
-        elseif luasnip.expand_or_jumpable() then
-            luasnip.expand_or_jump()
-        elseif luasnip.expandable() then
-            luasnip.expand {}
+        -- elseif luasnip.expandable() then
+        --     luasnip.expand {}
         -- elseif has_words_before() then
         --     cmp.complete()
         else
@@ -178,6 +182,8 @@ M.telescope_mappings = {
 
         ['<C-j>'] = actions.move_selection_next,
         ['<C-k>'] = actions.move_selection_previous,
+        ['<Tab>'] = actions.move_selection_next,
+        ['<S-Tab>'] = actions.move_selection_previous,
         ['<Down>'] = actions.move_selection_next,
         ['<Up>'] = actions.move_selection_previous,
 
@@ -194,9 +200,12 @@ M.telescope_mappings = {
         ['<C-f>'] = actions.results_scrolling_down,
 
         ['j'] = actions.move_selection_next,
+        ['<Tab>'] = actions.move_selection_next,
+        ['<S-Tab>'] = actions.move_selection_previous,
         ['k'] = actions.move_selection_previous,
         ['<Down>'] = actions.move_selection_next,
         ['<Up>'] = actions.move_selection_previous,
+
         ['gg'] = actions.move_to_top,
         ['G'] = actions.move_to_bottom,
 
@@ -208,10 +217,12 @@ M.telescope_mappings = {
 --- Neoscroll mappings
 local neoscroll_mappings = {}
 -- Syntax: t[keys] = {function, {function arguments}}
-neoscroll_mappings['<C-d>'] = {'scroll', {'-8', 'true', '100'}}
-neoscroll_mappings['<C-f>'] = {'scroll', {'8', 'true', '100'}}
+neoscroll_mappings['<C-d>'] = {'scroll', {'-10', 'true', '100'}}
+neoscroll_mappings['<C-f>'] = {'scroll', {'10', 'true', '100'}}
 neoscroll_mappings['<C-k>'] = {'scroll', {'-4', 'false', '100'}}
 neoscroll_mappings['<C-j>'] = {'scroll', {'4', 'false', '100'}}
+neoscroll_mappings['<C-y>'] = {'scroll', {'vim.wo.scroll', 'true', '0', nil}}
+neoscroll_mappings['<C-e>'] = {'scroll', {'-vim.wo.scroll', 'true', '0', nil}}
 -- t['<C-d>'] = {'scroll', {'-vim.wo.scroll', 'false', '50'}}
 -- t['<C-f>'] = {'scroll', {'vim.wo.scroll', 'false', '50'}}
 
