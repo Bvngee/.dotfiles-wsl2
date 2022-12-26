@@ -1,3 +1,5 @@
+local color_palette = require('user.colorscheme').palette
+
 require('nvim-treesitter.configs').setup {
     ensure_installed = 'all',
     sync_install = false,
@@ -6,6 +8,14 @@ require('nvim-treesitter.configs').setup {
     highlight = {
         enable = true,
         disable = { 'markdown' },
+    },
+    rainbow = {
+        enable = true,
+        -- disable = { "jsx", "cpp" }, list of languages you want to disable the plugin for
+        extended_mode = true, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
+        max_file_lines = nil, -- Do not enable for files with more than n lines, int
+        -- colors = {color_palette.fg0, color_palette.red}, -- table of hex strings
+        -- termcolors = {"fg0", "fg1"} -- table of colour name strings
     },
     textobjects = {
         select = {

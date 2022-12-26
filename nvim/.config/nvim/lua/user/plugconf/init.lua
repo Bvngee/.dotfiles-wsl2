@@ -17,12 +17,15 @@ require('user.plugconf.neoscroll')
 require('user.plugconf.treesitter')
 require('user.plugconf.tabout')
 require('user.plugconf.luasnip')
+require('user.plugconf.nvim-scrollbar')
 
 require('lsp-colors').setup {}
 require('neodev').setup {}
 require('mason-lspconfig').setup {}
 require('fidget').setup {}
 require('nvim-surround').setup {}
+require('numb').setup {}
+require('hlslens').setup {}
 
 require('user.plugconf.lsp.lspconfig')
 require('user.plugconf.lsp.null-ls')

@@ -43,8 +43,8 @@ vmap('>', '>gv')
 -- moving text up and down
 vmap('<A-j>', ':m .+1<CR>==')
 vmap('<A-k>', ':m .-2<CR>==')
--- xmap('<A-j>', ":move '>+1<CR>gv-gv")
--- xmap('<A-k>', ":move '<-2<CR>gv-gv")
+nmap('<A-j>', ':m .+1<CR>==')
+nmap('<A-k>', ':m .-2<CR>==')
 
 -- maintain register contents after paste
 vmap('p', '"_dP')
@@ -89,7 +89,7 @@ nmap('<leader>db', ':Bdelete<CR>')
 
 -- null-ls
 nmap('<leader>f', ':lua vim.lsp.buf.format()<CR>')
-vmap('<leader>f', ':lua vim.lsp.buf.format()<CR>')
+vmap('<leader>f', ':lua vim.lsp.buf.format()<CR>') --ranged?
 
 -- ranger (rnvimr)
 nmap('<leader>r', ':RnvimrToggle<CR>')
@@ -118,8 +118,8 @@ vim.cmd('autocmd! TermOpen term://* lua require("user.keybindings").set_terminal
 --- LSP Mappings
 function M.set_lsp_keymaps(bufnr)
     bufmap(bufnr, 'n', '<leader>l', ':echo "hi!"', opts)
-    bufmap(bufnr, 'n', 'gd', ':Telescope lsp_definitions<CR>', opts)
-    bufmap(bufnr, 'n', 'gD', ':Telescope lsp_declarations<CR>', opts)
+    bufmap(bufnr, 'n', 'gd', ':TroubleToggle lsp_definitions<CR>', opts)
+    bufmap(bufnr, 'n', 'gD', ':TroubleToggle lsp_type_definitions<CR>', opts)
     bufmap(bufnr, 'n', 'K', ':lua vim.lsp.buf.hover()<CR>', opts)
     bufmap(bufnr, 'n', 'gi', ':Telescope lsp_implementations<CR>', opts)
     bufmap(bufnr, 'n', 'gr', ':Telescope lsp_references<CR>', opts)
@@ -127,6 +127,8 @@ function M.set_lsp_keymaps(bufnr)
     bufmap(bufnr, 'n', 'gs', ':lua vim.lsp.buf.signature_help()<CR>', opts)
     bufmap(bufnr, 'n', 'gA', ':lua vim.lsp.buf.code_action()<CR>', opts)
     bufmap(bufnr, 'n', 'gR', ':lua vim.lsp.buf.rename()<CR>', opts)
+    bufmap(bufnr, 'n', 'gxd', ':TroubleToggle document_diagnostics<CR>', opts)
+    bufmap(bufnr, 'n', 'gxD', ':TroubleToggle workspace_diagnostics<CR>', opts)
 end
 
 --- CMP Mappings
@@ -173,8 +175,8 @@ M.cmp_mappings = {
     end, { 'i', 's' }),
 }
 
---this breaks telescope?
 --- Telescope Mappings
+local trouble = require('trouble.providers.telescope')
 local actions = require('telescope.actions')
 M.telescope_mappings = {
     i = {
@@ -190,6 +192,9 @@ M.telescope_mappings = {
         ['<C-l>'] = actions.complete_tag,
         ['<C-h>'] = actions.which_key, -- keys from pressing <C-h>
         -- ['<Esc>'] = actions.close,
+
+        
+        ['<C-t>'] = trouble.open_with_trouble,
     },
     n = {
         ['<Esc>'] = actions.close,
@@ -211,6 +216,9 @@ M.telescope_mappings = {
 
         ['?'] = actions.which_key,
         ['q'] = actions.close,
+
+
+        ['<C-t>'] = trouble.open_with_trouble,
     },
 }
 
