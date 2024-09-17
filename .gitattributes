@@ -1,0 +1,3 @@
+ranger/.config/ranger/plugins/** linguist-vendored
+ranger/.config/ranger/*.py linguist-vendored
+ranger/.config/ranger/*.sh linguist-vendored
